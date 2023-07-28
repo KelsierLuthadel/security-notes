@@ -32,7 +32,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 90.36 seconds
 ```
 
-**Interesting ports**
+**Interesting ports**   
 The SMB port 445 looks like a good candidate for an attack vector. To see if it is vulnerable, `nmap` can be used in conjunction with one if its many scripts.
 
 ## nmap scan using scripts
@@ -66,7 +66,7 @@ The target is vulnerable to `ms17-101`, also known as Eternal Blue. To exploit t
 
 ## Metasploit
 
-**Start metasploit**
+**Start metasploit**   
 `msfconsole`
 
 To find a suitable exploit, I am going to search for `ms17-010`:
@@ -149,7 +149,7 @@ To upgrade the windows shell to a meterpreter shell, run:
 
 `use shell_to_meterpreter`
 
-**Meterpreter options**
+**Meterpreter options**   
 Just like exploits, different shells like meterpreter also have options:
 
 `show options`
