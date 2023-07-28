@@ -10,6 +10,11 @@ To understand what ports are available to me, I need to perform a scan and save 
 
 `nmap -sC -sV -oN nmap/scan-1.txt 10.0.0.1`
 
+**Flags**   
+`-sC` - Use default set of scripts   
+`-sV` - Try and get version information from open ports   
+`-oN` - Save scan results in a text file (for future reference)   
+
 **Results from scan**   
 
 ```
