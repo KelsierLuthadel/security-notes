@@ -57,7 +57,7 @@ Host script results:
 Nmap done: 1 IP address (1 host up) scanned in 7.01 seconds
 ```
 
-The target is vulnerable to `ms17-101`, also known as Eternal Blue. To exploit this, I am going to user `metasploit`
+The target is vulnerable to `ms17-101`, also known as Eternal Blue. To exploit this, I am going to use `metasploit`
 
 ## Metasploit
 
