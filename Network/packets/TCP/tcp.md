@@ -71,10 +71,9 @@ The most common options are:
   This helps determine in which order packets were sent.
 - **Nop**   
   This option helps separate the different options used within the TCP Option field.
-  
-
-
-
 
 This field can be padded with 0x00 if necessary.
+
+
+
 
