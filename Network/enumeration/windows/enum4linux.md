@@ -81,7 +81,7 @@ This will show the results of share enumeration
 ```
 
 
-**Password policy**
+**Password policy**   
 If a password policy has been put in place, details will be shown here
 ```
 ============================( Password Policy Information for 10.10.10.10 )============================
