@@ -27,7 +27,7 @@ To add a new user type:
 net user <username> <password>
 ```
 
-## Escale privileges
+## Escalate privileges
 To escalate any user's privileges type:
 
 ```
